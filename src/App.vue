@@ -1,10 +1,10 @@
 <template>
-    <TheHeader />
-    <TheSidebarSmall />
-    <TheSidebar />
-    <TheSidebarMobile />
-    <TheCategories />
-    <TheVideos />
+  <TheHeader />
+  <TheSidebarSmall />
+  <TheSidebar />
+  <TheSidebarMobile />
+  <TheCategories />
+  <TheVideos />
 </template>
 <script>
 import TheHeader from './components/TheHeader.vue'
@@ -15,13 +15,13 @@ import TheCategories from './components/TheCategories.vue'
 import TheVideos from './components/TheVideos.vue'
 
 export default {
-    components: {
-        TheHeader,
-        TheSidebarSmall,
-        TheSidebar,
-        TheSidebarMobile,
-        TheCategories,
-        TheVideos
-    }
+  components: {
+    TheHeader,
+    TheSidebarSmall,
+    TheSidebar,
+    TheSidebarMobile,
+    TheCategories,
+    TheVideos,
+  },
 }
 </script>
