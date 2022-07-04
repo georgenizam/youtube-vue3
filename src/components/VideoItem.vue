@@ -1,7 +1,7 @@
 <template>
   <a href="#" class="mb-7 group">
-    <VideoItemThumbnail :index="index"/>
-    <VideoItemInfo :index="index"/>
+    <VideoItemThumbnail :index="index" />
+    <VideoItemInfo :index="index" />
   </a>
 </template>
 
@@ -14,8 +14,8 @@ export default {
   props: ['index'],
   components: {
     VideoItemThumbnail,
-    VideoItemInfo
-  }
+    VideoItemInfo,
+  },
 }
 </script>
 
