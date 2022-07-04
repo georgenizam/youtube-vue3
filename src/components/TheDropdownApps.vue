@@ -28,8 +28,8 @@ import DropdownAppsListItem from './DropdownAppsListItem.vue'
 export default {
   name: 'TheDropdownApps',
   components: {
-    DropdownAppsListItem
-  }
+    DropdownAppsListItem,
+  },
 }
 </script>
 

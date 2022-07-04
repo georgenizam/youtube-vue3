@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full h-full">
-    <TheSearchInput/>
-    <TheSearchButton/>
+    <TheSearchInput />
+    <TheSearchButton />
   </div>
 </template>
 
@@ -9,14 +9,12 @@
 import TheSearchInput from './TheSearchInput.vue'
 import TheSearchButton from './TheSearchButton.vue'
 export default {
-  name: "TheSearch",
+  name: 'TheSearch',
   components: {
     TheSearchInput,
-    TheSearchButton
-  }
+    TheSearchButton,
+  },
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
