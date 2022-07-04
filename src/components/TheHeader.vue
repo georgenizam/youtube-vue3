@@ -2,7 +2,10 @@
   <header class="flex justify-between fixed z-30 w-full">
     <div class="lg:w-1/4 flex">
       <div class="flex items-center xl:w-64 xl:bg-white pl-4">
-        <button class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none">
+        <button
+          @click="$emit('openMobileSidebar')"
+          class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none"
+        >
           <BaseIcon name="menu" class="w-6 h-6" />
         </button>
         <LogoMain />
@@ -53,6 +56,9 @@ export default {
     TheDropdownApps,
     TheDropdownSettings,
     BaseIcon,
+  },
+  emits: {
+    openMobileSidebar: null,
   },
 }
 </script>

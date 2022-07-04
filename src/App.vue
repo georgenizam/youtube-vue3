@@ -1,8 +1,11 @@
 <template>
-  <TheHeader />
+  <TheHeader @open-mobile-sidebar="openMobileSidebar" />
   <TheSidebarSmall />
   <TheSidebar />
-  <TheSidebarMobile />
+  <TheSidebarMobile
+    :is-open="isMobileSidebarOpen"
+    @close="closeMobileSidebar"
+  />
   <TheCategories />
   <TheVideos />
 </template>
@@ -22,6 +25,19 @@ export default {
     TheSidebarMobile,
     TheCategories,
     TheVideos,
+  },
+  data() {
+    return {
+      isMobileSidebarOpen: false,
+    }
+  },
+  methods: {
+    openMobileSidebar() {
+      this.isMobileSidebarOpen = true
+    },
+    closeMobileSidebar() {
+      this.isMobileSidebarOpen = false
+    },
   },
 }
 </script>
