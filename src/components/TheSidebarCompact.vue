@@ -1,7 +1,5 @@
 <template>
-  <aside
-    class="min-h-screen hidden md:block xl:hidden overflow-auto fixed top-0 pt-14 bg-white z-20"
-  >
+  <aside :class="classes">
     <section>
       <ul>
         <li>
@@ -105,3 +103,24 @@
     </section>
   </aside>
 </template>
+<script>
+import {computed} from "vue";
+
+export default {
+  computed: {
+    classes() {
+      const classes = [
+        'min-h-screen',
+        'overflow-auto',
+        'fixed',
+        'top-0',
+        'pt-14',
+        'bg-white',
+        'z-20'
+      ]
+      return [...classes]
+    }
+  }
+
+}
+</script>
