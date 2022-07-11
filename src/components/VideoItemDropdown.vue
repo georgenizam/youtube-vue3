@@ -47,19 +47,17 @@ export default {
   computed: {
     buttonClasses() {
       return [
-        '-mt-1',
-        'ml-auto',
         'p-1',
-        'opacity-0',
-        'group-hover:opacity-100',
         'text-gray-500',
         'hover:text-gray-700',
-        'focus:outline-none'
+        'focus:outline-none',
+        'group-hover:opacity-100',
+        this.isOpen ? 'opacity-100' : 'opacity-0'
       ]
     },
     dropdownClasses() {
       return [
-        'z-10',
+        'z-30',
         'focus:outline-none',
         'absolute',
         'bg-white',
@@ -88,6 +86,7 @@ export default {
     getPositionClasses(event) {
       return [
         this.getTopClass(event),
+        this.getBottomClass(event),
         this.getLeftClass(event),
         this.getRightClass(event)
       ]
@@ -98,12 +97,22 @@ export default {
       const dropdownHeight = this.$refs.dropdown.offsetHeight
 
       if (window.innerHeight - clickCoordY < dropdownHeight) {
-        return '-top-14'
+        return 'top-auto'
       }
+
       if (window.innerHeight - clickCoordY < dropdownHeight + buttonHeight) {
         return  'top-0'
       }
-      return 'top-9'
+      return 'top-8'
+    },
+    getBottomClass(event) {
+      const clickCoordY = event.clientY
+      const dropdownHeight = this.$refs.dropdown.offsetHeight
+
+      if (window.innerHeight - clickCoordY < dropdownHeight) {
+        return 'bottom-9'
+      }
+      return 'bottom-auto'
     },
     getLeftClass(event) {
       const clickCoordX = event.clientX
@@ -150,6 +159,7 @@ export default {
   },
   watch: {
     isOpen() {
+      document.body.classList.toggle('overflow-hidden')
       this.$nextTick(() => this.isOpen && this.$refs.dropdown.focus())
     },
   },

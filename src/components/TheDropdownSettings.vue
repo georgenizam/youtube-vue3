@@ -1,11 +1,13 @@
 <template>
   <div class="relative">
-    <button
-        class="relative p-2 focus:outline-none"
-        @click="isOpen = !isOpen"
-    >
-      <BaseIcon name="dotsVertical" class="w-5 h-5" />
-    </button>
+    <BaseTooltip text="Settings">
+      <button
+          class="relative p-2 focus:outline-none"
+          @click="isOpen = !isOpen"
+      >
+        <BaseIcon name="dotsVertical" class="w-5 h-5" />
+      </button>
+    </BaseTooltip>
     <transition
         enter-active-class="transition ease-out duration-100"
         enter-from-class="transition opacity-0 scale-95"
@@ -48,12 +50,14 @@
 <script>
 import DropdownSettingsListItem from './DropdownSettingsListItem.vue'
 import BaseIcon from './BaseIcon.vue'
+import BaseTooltip from "./BaseTooltip.vue"
 
 export default {
   name: 'TheDropdownSettings',
   components: {
     DropdownSettingsListItem,
-    BaseIcon
+    BaseIcon,
+    BaseTooltip
   },
   data() {
     return {
