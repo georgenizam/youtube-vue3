@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-        class="h-full flex items-center"
+        class="flex items-center h-full"
         @mouseenter="isShown = true"
         @mouseleave="isShown = false"
         @click="isShown = false"
@@ -16,30 +16,24 @@
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
     >
-      <div
-          v-show="isShown"
-          :class="classes"
-      >
-        {{ text }}
-      </div>
+      <div v-show="isShown" :class="classes">{{ text }}</div>
     </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: "BaseTooltip",
   props: {
     text: String,
     top: Boolean
   },
-  data() {
+  data () {
     return {
       isShown: false
     }
   },
   computed: {
-    classes() {
+    classes () {
       return [
         'bg-gray-600',
         'bg-opacity-80',
@@ -48,17 +42,13 @@ export default {
         'text-xs',
         'whitespace-nowrap',
         'p-2',
-        'absolute',
         'transform',
         '-translate-x-1/2',
-        this.top ? 'bottom-12' : 'top-14',
-        'left-1/2'
+        'absolute',
+        'left-1/2',
+        this.top ? 'bottom-12' : 'top-14'
       ]
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
