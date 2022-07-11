@@ -20,7 +20,7 @@
           @keydown.esc="isOpen = false"
           tabindex="-1"
           ref="dropdown"
-          class="focus:outline-none absolute top-9 -right-full sm:right-0 bg-white w-72 border border-t-0"
+          :class="dropdownClasses"
           v-show="isOpen"
     >
       <section class="py-2 border-b">
@@ -58,6 +58,21 @@ export default {
     DropdownSettingsListItem,
     BaseIcon,
     BaseTooltip
+  },
+  computed: {
+    dropdownClasses() {
+      return [
+        'focus:outline-none',
+        'absolute',
+        'top-9',
+        '-right-full',
+        'sm:right-0',
+        'bg-white',
+        'w-72',
+        'border',
+        'border-t-0'
+      ]
+    }
   },
   data() {
     return {

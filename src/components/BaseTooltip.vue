@@ -1,9 +1,10 @@
 <template>
   <div class="relative">
     <div
-        class="h-full"
-        @mouseenter="toggle"
-        @mouseleave="toggle"
+        class="h-full flex items-center"
+        @mouseenter="isShown = true"
+        @mouseleave="isShown = false"
+        @click="isShown = false"
     >
       <slot />
     </div>
@@ -29,7 +30,8 @@
 export default {
   name: "BaseTooltip",
   props: {
-    text: String
+    text: String,
+    top: Boolean
   },
   data() {
     return {
@@ -47,18 +49,13 @@ export default {
         'whitespace-nowrap',
         'p-2',
         'absolute',
-        'top-14',
-        'left-1/2',
         'transform',
-        '-translate-x-1/2'
+        '-translate-x-1/2',
+        this.top ? 'bottom-12' : 'top-14',
+        'left-1/2'
       ]
     }
-  },
-  methods: {
-    toggle() {
-      this.isShown = !this.isShown
-    }
-  },
+  }
 }
 </script>
 
