@@ -17,7 +17,10 @@
         text="Search with your voice"
         :left="isSmallScreen"
     >
-      <button class="p-2 focus:outline-none">
+      <button
+          class="p-2 focus:outline-none"
+          @click="$emit('open-voice-modal')"
+      >
         <BaseIcon name="microphone" class="w-5 h-5" />
       </button>
     </BaseTooltip>
@@ -31,6 +34,7 @@ import TheSearch from './TheSearch.vue'
 
 export default {
   props: ['isSmallScreen'],
+  emits: ['close', 'open-voice-modal'],
   name: "TheSearchWrapper",
   components: {
     BaseTooltip,
