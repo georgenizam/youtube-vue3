@@ -20,13 +20,23 @@
     </transition>
     <div
         v-if="isOpen"
-        class="bg-white w-2/3 m-8 relative"
+        class="bg-white w-full sm:w-2/3 m-8 relative flex flex-col"
+        style="max-height: calc(100vh - 64px)"
     >
-      <div class="p-2 text-right">
+      <div
+          class="p-2 text-right"
+          v-if="withCloseButton"
+      >
         <BaseModalButtonClose @click="close"/>
       </div>
-      <div class="p-6">
+      <div class="p-6 overflow-auto">
         <slot/>
+      </div>
+      <div
+          v-if="$slots.footer"
+          class="flex border-t border-gray-300 py-2"
+      >
+        <slot name="footer" :close="close"/>
       </div>
     </div>
   </div>
@@ -37,6 +47,9 @@ import BaseModalButtonClose from './BaseModalButtonClose.vue'
 import BaseModalOverlay from './BaseModalOverlay.vue'
 
 export default {
+  props: {
+    withCloseButton: Boolean
+  },
   emits: ['close'],
   name: "BaseModal",
   components: {
@@ -53,7 +66,8 @@ export default {
         'focus:outline-none',
         'flex',
         'items-start',
-        'justify-center'
+        'justify-center',
+        'mx-auto'
       ]
     }
   },
@@ -65,6 +79,10 @@ export default {
   },
   mounted() {
     this.$el.focus()
+    document.body.style.overflow = 'hidden'
+  },
+  beforeUnmount() {
+    document.body.style.overflow = ''
   }
 }
 </script>
